@@ -9,19 +9,27 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
+    let controller = Controller()
+    var btManager:BTmanager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        btManager = BTmanager()
+        btManager?.controllerDeregate = controller
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewDidAppear() {
+        
+    }
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-
-
+    
+    
 }
 

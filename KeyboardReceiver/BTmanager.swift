@@ -11,6 +11,8 @@ import CoreBluetooth
 
 class BTmanager: NSObject {
     var manager: CBPeripheralManager
+    open var controllerDeregate: ControllerDelegate?
+    
     override init() {
         manager = CBPeripheralManager(delegate: nil, queue: nil)
         super.init()

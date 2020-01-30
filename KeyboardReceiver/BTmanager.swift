@@ -38,7 +38,8 @@ extension BTmanager: CBPeripheralManagerDelegate{
         switch peripheral.state {
         case .poweredOn:
             setUPBT()
-            let adDate = [CBAdvertisementDataLocalNameKey: "Controller"]
+            let adDate = [CBAdvertisementDataServiceUUIDsKey: Const.Bluetooth.serviceUUID.uuidString
+                ,CBAdvertisementDataLocalNameKey: "Controller"]
             peripheral.startAdvertising(adDate)
         default:
             print()

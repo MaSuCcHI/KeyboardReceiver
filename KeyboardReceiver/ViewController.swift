@@ -16,7 +16,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btManager = BTmanager()
-        btManager?.controllerDeregate = controller
+        btManager?.controllerDelegate = controller
         // Do any additional setup after loading the view.
     }
     

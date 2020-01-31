@@ -11,7 +11,7 @@ import CoreBluetooth
 
 class BTmanager: NSObject {
     var manager: CBPeripheralManager
-    open var controllerDeregate: ControllerDelegate?
+    open var controllerDelegate: ControllerDelegate?
     
     override init() {
         manager = CBPeripheralManager(delegate: nil, queue: nil)
@@ -38,8 +38,7 @@ extension BTmanager: CBPeripheralManagerDelegate{
         switch peripheral.state {
         case .poweredOn:
             setUPBT()
-            let adDate = [CBAdvertisementDataServiceUUIDsKey: Const.Bluetooth.serviceUUID.uuidString
-                ,CBAdvertisementDataLocalNameKey: "Controller"]
+            let adDate = [CBAdvertisementDataLocalNameKey: "Controller"]
             peripheral.startAdvertising(adDate)
         default:
             print()

@@ -21,7 +21,7 @@ class BTmanager: NSObject {
 
     private func setUPBT(){
         let service = CBMutableService(type: Const.Bluetooth.serviceUUID, primary: true)
-        let properties : CBCharacteristicProperties = [.notify,.write,.writeWithoutResponse,.read]
+        let properties : CBCharacteristicProperties = [.write,.writeWithoutResponse,.read]
         let permissions: CBAttributePermissions = [.readable,.writeable]
         let mouseCharacteristic = CBMutableCharacteristic(type: Const.Bluetooth.mouseUUID, properties: properties, value: nil, permissions: permissions)
         let keyboardCharacteristic = CBMutableCharacteristic(type: Const.Bluetooth.keyboardUUID, properties: properties, value: nil, permissions: permissions)
@@ -55,6 +55,10 @@ extension BTmanager: CBPeripheralManagerDelegate{
             }
         }
         manager.respond(to: requests[0], withResult: .success)
+    }
+    
+    func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?) {
+        print("add service")
     }
     
     

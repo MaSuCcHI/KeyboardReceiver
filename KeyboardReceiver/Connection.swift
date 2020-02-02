@@ -21,7 +21,7 @@ class Connection: NSObject {
     override init() {
         session = MCSession(peer: selfID,
                             securityIdentity: nil,
-                            encryptionPreference: .none)
+                            encryptionPreference: .optional)
        advertiser = MCNearbyServiceAdvertiser(peer: selfID,
                                               discoveryInfo: nil,
                                               serviceType: "isReceiver")
@@ -31,25 +31,6 @@ class Connection: NSObject {
         advertiser.startAdvertisingPeer()
     }
     
-//
-//    open func sendData(data: Data, type: ControllType) {
-//        if !session.connectedPeers.isEmpty {
-//            switch type {
-//            case .keyboard:
-//                try? self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
-//
-//            case .mouse:
-//                try? session.send(data, toPeers: session.connectedPeers, with: .unreliable)
-//                break
-//            default:
-//                break
-//            }
-//        } else {
-//            print("どこにも接続していません")
-//        }
-//    }
-    
-    
 }
 
 extension Connection: MCSessionDelegate {
@@ -57,10 +38,13 @@ extension Connection: MCSessionDelegate {
         switch state {
         case .connected:
             advertiser.stopAdvertisingPeer()
+            print(session.connectedPeers.count)
             break
         case .connecting:
+            print(session.connectedPeers.count)
             break
         case .notConnected:
+            print(session.connectedPeers.count)
             advertiser.startAdvertisingPeer()
             break
         default:
@@ -69,7 +53,7 @@ extension Connection: MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print(data.base64EncodedString())
+        print(String(data: data, encoding: .utf8))
         return
     }
     
@@ -85,10 +69,14 @@ extension Connection: MCSessionDelegate {
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         return
     }
+    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
+         certificateHandler(true)
+    }
     
 }
 extension Connection: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+        print("InvitationFrom: \(peerID)")
         invitationHandler(true,session)
     }
     

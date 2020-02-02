@@ -11,12 +11,11 @@ import Cocoa
 class ViewController: NSViewController {
     
     let controller = Controller()
-    var btManager:BTmanager?
+    var connection: Connection!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btManager = BTmanager()
-        btManager?.controllerDelegate = controller
+        connection = Connection()
         // Do any additional setup after loading the view.
     }
     

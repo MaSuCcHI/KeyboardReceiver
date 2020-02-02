@@ -18,6 +18,7 @@
 		AA3FC07423E35E2A0078CAC9 /* MouseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FC07323E35E2A0078CAC9 /* MouseController.swift */; };
 		AA3FC07623E35E4C0078CAC9 /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FC07523E35E4C0078CAC9 /* KeyboardController.swift */; };
 		AA3FC07823E35E790078CAC9 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FC07723E35E790078CAC9 /* Controller.swift */; };
+		AA3FC0BA23E7199D0078CAC9 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3FC0B923E7199D0078CAC9 /* Connection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AA3FC07323E35E2A0078CAC9 /* MouseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseController.swift; sourceTree = "<group>"; };
 		AA3FC07523E35E4C0078CAC9 /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
 		AA3FC07723E35E790078CAC9 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		AA3FC0B923E7199D0078CAC9 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				AA3FC04123E3521C0078CAC9 /* Assets.xcassets */,
 				AA3FC06923E3528E0078CAC9 /* Const.swift */,
 				AA3FC06B23E352B20078CAC9 /* BTmanager.swift */,
+				AA3FC0B923E7199D0078CAC9 /* Connection.swift */,
 				AA3FC07323E35E2A0078CAC9 /* MouseController.swift */,
 				AA3FC04323E3521C0078CAC9 /* Main.storyboard */,
 				AA3FC07723E35E790078CAC9 /* Controller.swift */,
@@ -272,6 +275,7 @@
 				AA3FC04023E3521A0078CAC9 /* ViewController.swift in Sources */,
 				AA3FC07423E35E2A0078CAC9 /* MouseController.swift in Sources */,
 				AA3FC03E23E3521A0078CAC9 /* AppDelegate.swift in Sources */,
+				AA3FC0BA23E7199D0078CAC9 /* Connection.swift in Sources */,
 				AA3FC06A23E3528E0078CAC9 /* Const.swift in Sources */,
 				AA3FC07623E35E4C0078CAC9 /* KeyboardController.swift in Sources */,
 				AA3FC06C23E352B20078CAC9 /* BTmanager.swift in Sources */,

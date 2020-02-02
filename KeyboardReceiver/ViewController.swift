@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         connection = Connection()
+        connection.controllerDelegate = controller
         // Do any additional setup after loading the view.
     }
     

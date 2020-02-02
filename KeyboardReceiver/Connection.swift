@@ -18,6 +18,8 @@ class Connection: NSObject {
     private let selfID = MCPeerID(displayName: "Receiver")
     private let session: MCSession
     private let advertiser: MCNearbyServiceAdvertiser
+    open var controllerDelegate: ControllerDelegate?
+    
     override init() {
         session = MCSession(peer: selfID,
                             securityIdentity: nil,
@@ -54,6 +56,13 @@ extension Connection: MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print(String(data: data, encoding: .utf8))
+        
+        guard let delegate = controllerDelegate else {
+            return
+        }
+        if String(data: data, encoding: .utf8)  != "OK" {
+            delegate.manipulate(get: data)
+        }
         return
     }
     

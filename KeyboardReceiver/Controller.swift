@@ -8,6 +8,7 @@
 
 import Foundation
 protocol ControllerDelegate {
+    func manipulate(get data:Data)
 }
 
 class Controller: NSObject, ControllerDelegate{
@@ -16,5 +17,12 @@ class Controller: NSObject, ControllerDelegate{
     override init() {
         
         super.init()
+    }
+    
+    func manipulate(get data: Data) {
+        let str = String(data: data, encoding: .utf8)
+        let arry = str?.split(separator: ",")
+        mouse.moveMouse(dx: (Float(arry![0])!), dy: Float(arry![1])!)
+        return
     }
 }

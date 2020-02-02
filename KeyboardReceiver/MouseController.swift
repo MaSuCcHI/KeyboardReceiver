@@ -16,12 +16,14 @@ class MouseController: NSObject {
         super.init()
     }
     
-    open func moveMouse(dx: CGFloat,dy : CGFloat){
+    open func moveMouse(dx: Float,dy : Float){
+        let dxf = CGFloat(dx)
+        let dyf = CGFloat(dy)
         var location = NSEvent.mouseLocation
         for screen in NSScreen.screens {
             if screen.frame.contains(location) {
                 location = CGPoint(x: location.x, y: NSHeight(screen.frame) - location.y)
-                location = CGPoint(x: location.x - dx, y: location.y + dy)
+                location = CGPoint(x: location.x + dxf, y: location.y + dyf)
                 CGDisplayMoveCursorToPoint(0, location)
                 break
             }

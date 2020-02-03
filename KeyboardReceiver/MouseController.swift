@@ -30,10 +30,11 @@ class MouseController: NSObject {
         }
     }
     
-    open func leftClickDown(position: CGPoint) {
+    open func leftClickDown() {
         let source = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+        var location = NSEvent.mouseLocation
         let event = CGEvent(mouseEventSource: source, mouseType: CGEventType.leftMouseDown,
-                            mouseCursorPosition: position, mouseButton: CGMouseButton.left)
+                            mouseCursorPosition: location, mouseButton: CGMouseButton.left)
         event?.post(tap: CGEventTapLocation.cghidEventTap)
     }
     
@@ -45,7 +46,7 @@ class MouseController: NSObject {
     }
     
     open func leftDragged(to: CGPoint, from: CGPoint) {
-        leftClickDown(position: from)
+        leftClickDown()
         let source = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
         let event = CGEvent(mouseEventSource: source, mouseType: CGEventType.leftMouseDragged,
                             mouseCursorPosition: to, mouseButton: CGMouseButton.left)

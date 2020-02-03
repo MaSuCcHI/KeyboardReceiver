@@ -21,6 +21,10 @@ class Controller: NSObject, ControllerDelegate{
     
     func manipulate(get data: Data) {
         let str = String(data: data, encoding: .utf8)
+        if str == "leftP" {
+            mouse.leftClickDown()
+            return
+        }
         let arry = str?.split(separator: ",")
         mouse.moveMouse(dx: (Float(arry![0])!), dy: Float(arry![1])!)
         return
